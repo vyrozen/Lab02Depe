@@ -1,4 +1,5 @@
 from ast import Str
+from typing import List
 
 
 print(f"Selamat datang ke Dek Depe Holiday Tracker\n")
@@ -20,10 +21,16 @@ for i in range (n_liburan):
     perjalanan.append(x)
     Rating.append(rate)
 Overall_rating = sum(Rating)/n_liburan
-maxRatingIndex = Rating.index(max(Rating))
+maxRating = (max(Rating))
+
+listOfMaxIndex = []
+for i in range (n_liburan):
+    if maxRating == Rating[i]:
+        listOfMaxIndex.append(i)
+print(listOfMaxIndex)
 
 if 8<=Overall_rating<=10 : StrOut = f"Dek Depe bahagia karena pengalamannya menyenangkan."
 if 5<=Overall_rating<8 : StrOut = f"Dek Depe senang karena pengalamannya cukup baik."
 if Overall_rating<5 : StrOut = f"Dek Depe sedih karena pengalamannya buruk."
 
-print(f"\n---Summary---\nPerjalanan paling mengesankan adalah ketika pergi ke {perjalanan[Rating.index(max(Rating))]}.\nSkala kebahagiaan Dek Depe adalah {float(round(Overall_rating, 2))}")
+print(f"\n---Summary---\nPerjalanan paling mengesankan adalah ketika pergi ke {perjalanan[max(listOfMaxIndex)]}\nSkala kebahagiaan Dek Depe adalah {float(round(Overall_rating, 2))}.\n{StrOut}\n\nTerimakasih telah menggunakan Dek Depe Holiday Tracker!")
